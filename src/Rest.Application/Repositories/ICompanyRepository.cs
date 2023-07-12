@@ -2,6 +2,6 @@
 
 namespace Rest.Application.Repositories;
 
-public interface ICompanyRepository : IReadRepository<Product>
+public interface ICompanyRepository : ISpecificationRepository<Company>
 {
 }

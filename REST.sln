@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33711.374
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.Api", "src\Rest.Api\Rest.Api.csproj", "{E7AE40B8-FBEE-474A-B0E1-7CDF63E9F280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rest.Api", "src\Rest.Api\Rest.Api.csproj", "{E7AE40B8-FBEE-474A-B0E1-7CDF63E9F280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.Application", "src\Rest.Application\Rest.Application.csproj", "{0AFB38EF-820A-4D41-8F3C-D5F58ACB5AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rest.Application", "src\Rest.Application\Rest.Application.csproj", "{0AFB38EF-820A-4D41-8F3C-D5F58ACB5AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.Infrastructure", "src\Rest.Infrastructure\Rest.Infrastructure.csproj", "{EF4419F5-5DC3-4FDD-8A80-A9750D2ADBD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rest.Infrastructure", "src\Rest.Infrastructure\Rest.Infrastructure.csproj", "{EF4419F5-5DC3-4FDD-8A80-A9750D2ADBD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rest.Application.Tests", "src\Rest.Application.Tests\Rest.Application.Tests.csproj", "{BF2F5D0C-AB69-470F-B131-FF663F708B39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rest.Application.Tests", "src\Rest.Application.Tests\Rest.Application.Tests.csproj", "{BF2F5D0C-AB69-470F-B131-FF663F708B39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 
 public sealed class AndSpecification<T> : BinarySpecification<T>
 {
-    public AndSpecification(ISpecification<T> left, ISpecification<T> right):
+    public AndSpecification(ISpecification<T> left, ISpecification<T> right) :
         base(left, right, System.Linq.Expressions.Expression.AndAlso)
     {
     }
