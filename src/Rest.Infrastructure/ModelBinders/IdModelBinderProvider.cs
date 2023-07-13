@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Rest.Application.Entities;
 
-namespace Rest.Api.ModelBinders;
+namespace Rest.Infrastructure.ModelBinders;
 
 public class IdModelBinderProvider : IModelBinderProvider
 {

@@ -2,6 +2,6 @@
 
 namespace Rest.Application.Repositories;
 
-public interface IBrandRepository : ISpecificationRepository<Brand>
+public interface IBrandRepository : ISpecificationRepository<Brand>, IPagedRepository<Brand>
 {
 }

@@ -1,0 +1,342 @@
+﻿[
+  {
+    "name": "Novatech Solutions",
+    "brands": [
+      {
+        "name": "N-Tech",
+        "products": [ "NovaPhone", "TechPad", "InnoBot" ]
+      },
+      {
+        "name": "NovaSol",
+        "products": [ "Solaris", "NovaGlow", "Solace" ]
+      },
+      {
+        "name": "InnoVate",
+        "products": [ "VitaBlend", "InnoFuel", "Protonix" ]
+      }
+    ]
+  },
+  {
+    "name": "Stellar Industries",
+    "brands": [
+      {
+        "name": "AstroTech",
+        "products": [ "StellarScope", "AstroBeam", "Galaxia" ]
+      },
+      {
+        "name": "StarCorp",
+        "products": [ "StarLink", "CosmoDrive", "StellarGrip" ]
+      },
+      {
+        "name": "Luminex",
+        "products": [ "Luminaire", "RadiantX", "Luminova" ]
+      }
+    ]
+  },
+  {
+    "name": "Quantum Innovations",
+    "brands": [
+      {
+        "name": "Quanta",
+        "products": [ "QuantumPod", "QuantaBeam", "QuantumX" ]
+      },
+      {
+        "name": "InnoQuant",
+        "products": [ "QuantumSense", "InnoQuark", "QuantaSync" ]
+      },
+      {
+        "name": "InnovaTech",
+        "products": [ "InnovaScope", "QuantumDrive", "TechQuantum" ]
+      }
+    ]
+  },
+  {
+    "name": "Meridian Ventures",
+    "brands": [
+      {
+        "name": "MeriVent",
+        "products": [ "VenturePro", "MeridianFlow", "VentureMax" ]
+      },
+      {
+        "name": "Stratix",
+        "products": [ "StratFlow", "MaxCore", "StratiLink" ]
+      },
+      {
+        "name": "VentureX",
+        "products": [ "Xplorer", "VenturePro X", "CoreX" ]
+      }
+    ]
+  },
+  {
+    "name": "Optima Systems",
+    "brands": [
+      {
+        "name": "Optimum",
+        "products": [ "OptiPro", "MaxOptima", "OptiSync" ]
+      },
+      {
+        "name": "SpectraTech",
+        "products": [ "SpectraView", "TechScan", "OptiSpectra" ]
+      },
+      {
+        "name": "PrimeSys",
+        "products": [ "PrimeCore", "SysOptima", "OptiPrime" ]
+      }
+    ]
+  },
+  {
+    "name": "Nexus Dynamics",
+    "brands": [
+      {
+        "name": "DynaCore",
+        "products": [ "CoreTech", "DynaLink", "NexusCore" ]
+      },
+      {
+        "name": "NexaTech",
+        "products": [ "NexaDrive", "TechConnect", "NexusSync" ]
+      },
+      {
+        "name": "VitaSys",
+        "products": [ "VitaLink", "SysSync", "NexusVita" ]
+      }
+    ]
+  },
+  {
+    "name": "FusionTech Enterprises",
+    "brands": [
+      {
+        "name": "FusionX",
+        "products": [ "FusionPad", "Xcellerate", "FusionSync" ]
+      },
+      {
+        "name": "TechMorph",
+        "products": [ "MorphTech", "FusionLink", "MorphX" ]
+      },
+      {
+        "name": "DynaFusion",
+        "products": [ "FusionDrive", "DynaSync", "FusionPro" ]
+      }
+    ]
+  },
+  {
+    "name": "Proxima Solutions",
+    "brands": [
+      {
+        "name": "Proximex",
+        "products": [ "ProxiScan", "Xplorer", "ProximaSync" ]
+      },
+      {
+        "name": "SolviTech",
+        "products": [ "SolvCore", "TechProxi", "SolvSync" ]
+      },
+      {
+        "name": "NexaSolutions",
+        "products": [ "NexaProx", "SolutioX", "NexaSync" ]
+      }
+    ]
+  },
+  {
+    "name": "Vortex Technologies",
+    "brands": [
+      {
+        "name": "Vortech",
+        "products": [ "VortexDrive", "TechVortex", "VortexSync" ]
+      },
+      {
+        "name": "AeroSys",
+        "products": [ "AeroLink", "AeroDrive", "VortexFlow" ]
+      },
+      {
+        "name": "MagniTech",
+        "products": [ "MagniSync", "VortexPro", "TechMagnus" ]
+      }
+    ]
+  },
+  {
+    "name": "Elysium Innovations",
+    "brands": [
+      {
+        "name": "ElyTech",
+        "products": [ "ElyCore", "InnovaX", "ElySync" ]
+      },
+      {
+        "name": "InnoLuxe",
+        "products": [ "LuxeTech", "Luminova", "InnoGlow" ]
+      },
+      {
+        "name": "VitaInnovations",
+        "products": [ "VitaGrip", "InnoBlend", "VitaBeam" ]
+      }
+    ]
+  },
+  {
+    "name": "Synergistic Solutions",
+    "brands": [
+      {
+        "name": "Synerex",
+        "products": [ "SynerPro", "Xcella", "SyncTech" ]
+      },
+      {
+        "name": "InnoSys",
+        "products": [ "InnoSync", "SynerDrive", "SysLink" ]
+      },
+      {
+        "name": "Harmonix",
+        "products": [ "HarmonyTech", "SyncLink", "Harmonia" ]
+      }
+    ]
+  },
+  {
+    "name": "Astral Enterprises",
+    "brands": [
+      {
+        "name": "AstraCore",
+        "products": [ "AstraLink", "AstraDrive", "AstroSync" ]
+      },
+      {
+        "name": "Celestix",
+        "products": [ "Celestia", "StellaSync", "AstroCore" ]
+      },
+      {
+        "name": "Galaxia",
+        "products": [ "GalaxiTech", "GalaxyPro", "AstroLink" ]
+      }
+    ]
+  },
+  {
+    "name": "Apex Innovators",
+    "brands": [
+      {
+        "name": "ApexTech",
+        "products": [ "ApexDrive", "ApexLink", "PrimeX" ]
+      },
+      {
+        "name": "EvoInnov",
+        "products": [ "EvoSync", "InnoX", "EvoCore" ]
+      },
+      {
+        "name": "PrimeX",
+        "products": [ "PrimeDrive", "Xcella", "PrimeSync" ]
+      }
+    ]
+  },
+  {
+    "name": "Luminary Industries",
+    "brands": [
+      {
+        "name": "LumiCore",
+        "products": [ "LumiBeam", "RadiantSync", "LumiPro" ]
+      },
+      {
+        "name": "RadiantX",
+        "products": [ "RadiantTech", "LumiLink", "XcellaRadiant" ]
+      },
+      {
+        "name": "SpectraInnov",
+        "products": [ "SpectraSync", "InnovaGlow", "SpectraCore" ]
+      }
+    ]
+  },
+  {
+    "name": "Vertex Ventures",
+    "brands": [
+      {
+        "name": "VertexX",
+        "products": [ "VertexDrive", "XplorerTech", "VertexSync" ]
+      },
+      {
+        "name": "Stratix",
+        "products": [ "StratixSync", "VertexPro", "StratiLink" ]
+      },
+      {
+        "name": "Elevate",
+        "products": [ "ElevaTech", "VertexEvo", "ElevateDrive" ]
+      }
+    ]
+  },
+  {
+    "name": "Zenith Systems",
+    "brands": [
+      {
+        "name": "Zenex",
+        "products": [ "ZenexSync", "ZenithDrive", "XcellaZen" ]
+      },
+      {
+        "name": "UltimaTech",
+        "products": [ "UltimaSync", "ZenithTech", "UltimaDrive" ]
+      },
+      {
+        "name": "PrimeSys",
+        "products": [ "PrimeLink", "SysTech", "ZenithPro" ]
+      }
+    ]
+  },
+  {
+    "name": "Nebula Technologies",
+    "brands": [
+      {
+        "name": "NebuTech",
+        "products": [ "NebuDrive", "NebulaSync", "TechNebula" ]
+      },
+      {
+        "name": "CosmoSys",
+        "products": [ "CosmoLink", "NebulaCore", "CosmicTech" ]
+      },
+      {
+        "name": "AstroInnov",
+        "products": [ "AstroSync", "InnoNebula", "AstroBeam" ]
+      }
+    ]
+  },
+  {
+    "name": "Catalyst Solutions",
+    "brands": [
+      {
+        "name": "CatalysTech",
+        "products": [ "CatalystDrive", "TechCatalyst", "CatalystSync" ]
+      },
+      {
+        "name": "InnoVerse",
+        "products": [ "VerseTech", "CatalystPro", "InnovaLink" ]
+      },
+      {
+        "name": "CoreSol",
+        "products": [ "CoreSync", "SolTech", "CoreCatalyst" ]
+      }
+    ]
+  },
+  {
+    "name": "Astrum Dynamics",
+    "brands": [
+      {
+        "name": "AstrumX",
+        "products": [ "AstrumDrive", "AstraLink", "XcellaAstra" ]
+      },
+      {
+        "name": "DynaCore",
+        "products": [ "DynaSync", "AstrumTech", "DynaDrive" ]
+      },
+      {
+        "name": "EvoDynamics",
+        "products": [ "EvoSync", "DynaLink", "EvoCore" ]
+      }
+    ]
+  },
+  {
+    "name": "Equinox Innovations",
+    "brands": [
+      {
+        "name": "EquiCore",
+        "products": [ "EquiDrive", "EquinoxSync", "CoreTech" ]
+      },
+      {
+        "name": "SolarTech",
+        "products": [ "SolarLink", "TechEquinox", "SolarSync" ]
+      },
+      {
+        "name": "InnovaSys",
+        "products": [ "InnoDrive", "InnovaSync", "EquinoxPro" ]
+      }
+    ]
+  }
+]
