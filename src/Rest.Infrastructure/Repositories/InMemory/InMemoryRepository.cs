@@ -4,9 +4,17 @@ using Rest.Application.Specifications;
 
 namespace Rest.Infrastructure.Repositories;
 
-public abstract class InMemoryRepository<TEntity>: ISpecificationRepository<TEntity>, IPagedRepository<TEntity>
+public abstract class InMemoryRepository<TEntity, TExpansion>: ISpecificationRepository<TEntity, TExpansion>, IPagedRepository<TEntity, TExpansion>
     where TEntity : Entity<TEntity>
+    where TExpansion : Expansion<TExpansion>, new()
 {
+    public InMemoryRepository(InMemoryUnitOfWork unitOfWork)
+    {
+        UnitOfWork = unitOfWork;
+    }
+
+    public InMemoryUnitOfWork UnitOfWork { get; }
+
     public Task Add(TEntity entity, CancellationToken cancellationToken = default)
     {
         entity.Id = new(++_idCounter);
@@ -14,22 +22,22 @@ public abstract class InMemoryRepository<TEntity>: ISpecificationRepository<TEnt
         return Task.CompletedTask;
     }
 
-    public IAsyncEnumerable<TEntity> Get(ISpecification<TEntity> specification, CancellationToken cancellationToken = default) =>
-        GetSync(specification, cancellationToken).ToAsyncEnumerable();
+    public virtual IAsyncEnumerable<TEntity> Get(ISpecification<TEntity> specification, TExpansion? expansion, CancellationToken cancellationToken = default) =>
+        GetSync(specification, expansion, cancellationToken).ToAsyncEnumerable();
 
-    private IEnumerable<TEntity> GetSync(ISpecification<TEntity> specification, CancellationToken cancellationToken)
+    protected IEnumerable<TEntity> GetSync(ISpecification<TEntity> specification, TExpansion? expansion, CancellationToken cancellationToken)
     {
         foreach (var entity in Entities.Values)
         {
             cancellationToken.ThrowIfCancellationRequested();
             if (specification.IsSatisfiedBy(entity))
             {
-                yield return entity;
+                yield return entity.Clone();
             }
         }
     }
 
-    public Task<PagedResult<TEntity>> GetPaged(IContinuationToken? continuationToken = null, CancellationToken cancellationToken = default)
+    public virtual Task<PagedResult<TEntity>> GetPaged(IContinuationToken? continuationToken = null, TExpansion? expansion = null, CancellationToken cancellationToken = default)
     {
         IEnumerable<KeyValuePair<Id<TEntity>, TEntity>> query = Entities;
 
@@ -43,7 +51,7 @@ public abstract class InMemoryRepository<TEntity>: ISpecificationRepository<TEnt
         }
 
         var data = query
-            .Select(kv => kv.Value)
+            .Select(kv => kv.Value.Clone())
             .Take(10)
             .ToArray();
 

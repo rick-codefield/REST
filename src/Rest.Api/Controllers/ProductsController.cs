@@ -15,10 +15,15 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Product[]>> GetAll([FromHeader(Name = "Continuation-Token")] byte[]? rawContinuationToken, CancellationToken cancellationToken)
+    public async Task<ActionResult<Product[]>> GetAll([FromHeader(Name = "Continuation-Token")] byte[]? rawContinuationToken, [FromQuery] string? expand, CancellationToken cancellationToken)
     {
+        ProductExpansion.TryParse(expand, null, out var expansion);
+
         var continuationToken = rawContinuationToken != null ? ContinuationToken.Deserialize(rawContinuationToken) : null;
-        var pagedResult = await _unitOfWork.ProductRepository.GetPaged(continuationToken, cancellationToken);
+        var pagedResult = await _unitOfWork.ProductRepository.GetPaged(
+            continuationToken: continuationToken,
+            expansion: expansion,
+            cancellationToken: cancellationToken);
 
         Response.Headers.Add(pagedResult);
 
@@ -26,9 +31,11 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Product>> GetById([FromRoute] Id<Product> id, CancellationToken cancellationToken)
+    public async Task<ActionResult<Product>> GetById([FromRoute] Id<Product> id, [FromQuery] string? expand, CancellationToken cancellationToken)
     {
-        var product = await _unitOfWork.ProductRepository.GetById(id, cancellationToken);
+        ProductExpansion.TryParse(expand, null, out var expansion);
+
+        var product = await _unitOfWork.ProductRepository.GetById(id, expansion, cancellationToken);
 
         if (product != null)
         {

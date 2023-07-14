@@ -8,7 +8,7 @@ namespace Rest.Application.Entities;
 /// If the entity has not been expanded, this will only store the id of that entity.
 /// </summary>
 [JsonConverter(typeof(EntityOrIdJsonConverterFactory))]
-public readonly struct EntityOrId<TEntity>
+public readonly struct EntityOrId<TEntity>: ICloneable
     where TEntity : Entity<TEntity>
 {
     public EntityOrId(Id<TEntity> id)
@@ -37,4 +37,7 @@ public readonly struct EntityOrId<TEntity>
     // TODO: Reduce memory usage with a tagged union
     private readonly Id<TEntity> _id;
     private readonly TEntity? _entity;
+
+    object ICloneable.Clone() => Clone();
+    public EntityOrId<TEntity> Clone() => Entity != null ? new(Entity.Clone()) : new(Id);
 }

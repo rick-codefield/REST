@@ -18,7 +18,9 @@ public class BrandsController : ControllerBase
     public async Task<ActionResult<Brand[]>> GetAll([FromHeader(Name = "Continuation-Token")] byte[]? rawContinuationToken, CancellationToken cancellationToken)
     {
         var continuationToken = rawContinuationToken != null ? ContinuationToken.Deserialize(rawContinuationToken) : null;
-        var pagedResult = await _unitOfWork.BrandRepository.GetPaged(continuationToken, cancellationToken);
+        var pagedResult = await _unitOfWork.BrandRepository.GetPaged(
+            continuationToken: continuationToken,
+            cancellationToken: cancellationToken);
 
         Response.Headers.Add(pagedResult);
 
@@ -28,7 +30,7 @@ public class BrandsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Brand>> GetById([FromRoute] Id<Brand> id, CancellationToken cancellationToken)
     {
-        var brand = await _unitOfWork.BrandRepository.GetById(id, cancellationToken);
+        var brand = await _unitOfWork.BrandRepository.GetById(id, null, cancellationToken);
 
         if (brand != null)
         {

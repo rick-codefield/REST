@@ -18,7 +18,9 @@ public class CompaniesController : ControllerBase
     public async Task<ActionResult<Company[]>> GetAll([FromHeader(Name = "Continuation-Token")] byte[]? rawContinuationToken, CancellationToken cancellationToken)
     {
         var continuationToken = rawContinuationToken != null ? ContinuationToken.Deserialize(rawContinuationToken) : null;
-        var pagedResult = await _unitOfWork.CompanyRepository.GetPaged(continuationToken, cancellationToken);
+        var pagedResult = await _unitOfWork.CompanyRepository.GetPaged(
+            continuationToken: continuationToken,
+            cancellationToken: cancellationToken);
 
         Response.Headers.Add(pagedResult);
 
@@ -28,7 +30,7 @@ public class CompaniesController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Company>> GetById([FromRoute] Id<Company> id, CancellationToken cancellationToken)
     {
-        var company = await _unitOfWork.CompanyRepository.GetById(id, cancellationToken);
+        var company = await _unitOfWork.CompanyRepository.GetById(id, null, cancellationToken);
 
         if (company != null)
         {

@@ -2,6 +2,6 @@
 
 namespace Rest.Application.Repositories;
 
-public interface ICompanyRepository : ISpecificationRepository<Company>, IPagedRepository<Company>
+public interface ICompanyRepository : ISpecificationRepository<Company, CompanyExpansion>, IPagedRepository<Company, CompanyExpansion>
 {
 }

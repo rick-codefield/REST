@@ -9,9 +9,9 @@ public sealed class InMemoryUnitOfWork : IUnitOfWork
         return ValueTask.CompletedTask;
     }
 
-    public IBrandRepository BrandRepository => _brandRepository ??= new();
-    public ICompanyRepository CompanyRepository => _companyRepository ??= new();
-    public IProductRepository ProductRepository => _productRepository ??= new();
+    public IBrandRepository BrandRepository => _brandRepository ??= new(this);
+    public ICompanyRepository CompanyRepository => _companyRepository ??= new(this);
+    public IProductRepository ProductRepository => _productRepository ??= new(this);
 
     public Task Commit(CancellationToken cancellationToken = default)
     {
