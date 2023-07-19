@@ -11,7 +11,6 @@ public interface IContinuationToken
 {
     ContinuationTokenType Type { get; }
     byte[] Serialize();
-    abstract static IContinuationToken Deserialize(ReadOnlySpan<byte> data);
 }
 
 public static class ContinuationToken

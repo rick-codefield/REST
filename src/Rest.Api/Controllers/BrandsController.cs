@@ -15,9 +15,8 @@ public class BrandsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Brand[]>> GetAll([FromHeader(Name = "Continuation-Token")] byte[]? rawContinuationToken, CancellationToken cancellationToken)
+    public async Task<ActionResult<Brand[]>> GetAll([FromHeader(Name = "Continuation-Token")] IContinuationToken? continuationToken, CancellationToken cancellationToken)
     {
-        var continuationToken = rawContinuationToken != null ? ContinuationToken.Deserialize(rawContinuationToken) : null;
         var pagedResult = await _unitOfWork.BrandRepository.GetPaged(
             continuationToken: continuationToken,
             cancellationToken: cancellationToken);

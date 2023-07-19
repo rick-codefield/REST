@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using Rest.Application.Repositories;
 using Rest.Infrastructure.ModelBinders;
 using Rest.Infrastructure.Repositories;
@@ -10,11 +11,19 @@ builder.Services.AddControllers(options =>
 {
     options.ModelBinderProviders.Insert(0, new IdModelBinderProvider());
     options.ModelBinderProviders.Insert(0, new ContinuationTokenModelBinderProvider());
+    options.ModelBinderProviders.Insert(0, new ExpansionModelBinderProvider());
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.MapType<IContinuationToken>(() => new OpenApiSchema
+    {
+        Type = "string",
+        Format = " string"
+    });
+});
 
 builder.Services.AddSingleton<IUnitOfWork, InMemoryUnitOfWork>();
 

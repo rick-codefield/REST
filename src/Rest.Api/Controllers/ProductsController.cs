@@ -15,14 +15,11 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Product[]>> GetAll([FromHeader(Name = "Continuation-Token")] byte[]? rawContinuationToken, [FromQuery] string? expand, CancellationToken cancellationToken)
+    public async Task<ActionResult<Product[]>> GetAll([FromHeader(Name = "Continuation-Token")] IContinuationToken? continuationToken, [FromQuery] ProductExpansion? expand, CancellationToken cancellationToken)
     {
-        ProductExpansion.TryParse(expand, null, out var expansion);
-
-        var continuationToken = rawContinuationToken != null ? ContinuationToken.Deserialize(rawContinuationToken) : null;
         var pagedResult = await _unitOfWork.ProductRepository.GetPaged(
             continuationToken: continuationToken,
-            expansion: expansion,
+            expansion: expand,
             cancellationToken: cancellationToken);
 
         Response.Headers.Add(pagedResult);
