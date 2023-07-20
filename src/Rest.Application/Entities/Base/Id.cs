@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace Rest.Application.Entities;
 
 [JsonConverter(typeof(IdJsonConverterFactory))]
-public record struct Id<TEntity>(int Value) : IComparable<Id<TEntity>>, IComparable
+public record struct Id<TEntity>(long Value) : IComparable<Id<TEntity>>, IComparable
     where TEntity : Entity<TEntity>
 {
     public int CompareTo(Id<TEntity> other) => Value.CompareTo(other.Value);

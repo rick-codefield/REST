@@ -15,7 +15,8 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Product[]>> GetAll([FromHeader(Name = "Continuation-Token")] IContinuationToken? continuationToken, [FromQuery] ProductExpansion? expand, CancellationToken cancellationToken)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<Product[]>> GetAll([FromHeader(Name = "Continuation-Token")] IContinuationToken? continuationToken, ProductExpansion? expand, CancellationToken cancellationToken)
     {
         var pagedResult = await _unitOfWork.ProductRepository.GetPaged(
             continuationToken: continuationToken,
@@ -28,11 +29,11 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Product>> GetById([FromRoute] Id<Product> id, [FromQuery] string? expand, CancellationToken cancellationToken)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<Product>> GetById(Id<Product> id, ProductExpansion? expand, CancellationToken cancellationToken)
     {
-        ProductExpansion.TryParse(expand, null, out var expansion);
-
-        var product = await _unitOfWork.ProductRepository.GetById(id, expansion, cancellationToken);
+        var product = await _unitOfWork.ProductRepository.GetById(id, expand, cancellationToken);
 
         if (product != null)
         {

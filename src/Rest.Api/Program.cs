@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using Rest.Application.Repositories;
+using Rest.Infrastructure;
 using Rest.Infrastructure.ModelBinders;
 using Rest.Infrastructure.Repositories;
 
@@ -7,22 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
+
 builder.Services.AddControllers(options =>
 {
-    options.ModelBinderProviders.Insert(0, new IdModelBinderProvider());
-    options.ModelBinderProviders.Insert(0, new ContinuationTokenModelBinderProvider());
-    options.ModelBinderProviders.Insert(0, new ExpansionModelBinderProvider());
+    options.AddInfrastructure();
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.MapType<IContinuationToken>(() => new OpenApiSchema
-    {
-        Type = "string",
-        Format = " string"
-    });
+    options.AddInfrastructure();
 });
 
 builder.Services.AddSingleton<IUnitOfWork, InMemoryUnitOfWork>();

@@ -15,10 +15,11 @@ public class BrandsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Brand[]>> GetAll([FromHeader(Name = "Continuation-Token")] IContinuationToken? continuationToken, CancellationToken cancellationToken)
+    public async Task<ActionResult<Brand[]>> GetAll(BrandExpansion? expand, [FromHeader(Name = "Continuation-Token")] IContinuationToken? continuationToken, CancellationToken cancellationToken)
     {
         var pagedResult = await _unitOfWork.BrandRepository.GetPaged(
             continuationToken: continuationToken,
+            expansion: expand,
             cancellationToken: cancellationToken);
 
         Response.Headers.Add(pagedResult);
@@ -27,9 +28,9 @@ public class BrandsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Brand>> GetById([FromRoute] Id<Brand> id, CancellationToken cancellationToken)
+    public async Task<ActionResult<Brand>> GetById(Id<Brand> id, BrandExpansion? expand, CancellationToken cancellationToken)
     {
-        var brand = await _unitOfWork.BrandRepository.GetById(id, null, cancellationToken);
+        var brand = await _unitOfWork.BrandRepository.GetById(id, expand, cancellationToken);
 
         if (brand != null)
         {

@@ -2,13 +2,13 @@
 
 namespace Rest.Application.Repositories;
 
-public sealed record SeekContinuationToken(int Id) : IContinuationToken
+public sealed record SeekContinuationToken(long Id) : IContinuationToken
 {
     public ContinuationTokenType Type => ContinuationTokenType.Seek;
 
     public byte[] Serialize()
     {
-        var data = new byte[5];
+        var data = new byte[9];
         using var stream = new MemoryStream(data);
         using var writer = new BinaryWriter(stream);
 
@@ -25,7 +25,7 @@ public sealed record SeekContinuationToken(int Id) : IContinuationToken
             throw new ArgumentException("Token type mismatch");
         }
 
-        var id = MemoryMarshal.Read<int>(data.Slice(1));
+        var id = MemoryMarshal.Read<long>(data.Slice(1));
 
         return new SeekContinuationToken(id);
     }

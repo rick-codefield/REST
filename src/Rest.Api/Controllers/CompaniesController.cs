@@ -28,7 +28,7 @@ public class CompaniesController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Company>> GetById([FromRoute] Id<Company> id, CancellationToken cancellationToken)
+    public async Task<ActionResult<Company>> GetById(Id<Company> id, CancellationToken cancellationToken)
     {
         var company = await _unitOfWork.CompanyRepository.GetById(id, null, cancellationToken);
 
